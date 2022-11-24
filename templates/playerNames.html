@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<main>
+    <div class="player_names">
+        <form id="name_form" action="/play" method="post">
+            {% for i in range(playerCount) %}
+                <fieldset>
+                    <label for="player{{i}}">Player {{ i+1 }}</label>
+                    <input class = "name_input" name="player{{i+1}}" type="text" placeholder="Enter a name for Player {{ i+1 }}" maxlength=10/>
+                </fieldset>
+                <hr>
+            {% endfor %}
+            <button id="start_game" type="button">Start</button>
+        </form>
+    </div>
+
+
+    <script src="../static/validateNames.js"></script>
+</main>
+
+{% endblock %}

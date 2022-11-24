@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+<main class="main_game">
+    <div class="left">
+        <div class="current_round">
+            <h2>Current Round</h2>
+            <div>
+                <p class="inline">Round </p>
+                <p class="inline" id="round_number">1</p>
+            </div>
+
+        </div>
+        {% for player_data in playersList.values() %}
+        <div class="player_banner">
+            <section class="turn">
+            </section>
+
+            <section>
+                <h2>Player:</h2>
+                <p class="playerName">{{ player_data[0] }}</p>
+            </section>
+            <section>
+                <h2>Score:</h2>
+                <p class="currentScore">{{ player_data[1] }}</p>
+            </section>
+            <section>
+                <h2>Score for this Round:</h2>
+                <input class="roundScore" type="number" placeholder="Enter Score" />
+            </section>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="right">
+
+        <div class="target_score">
+            <h2>Target Score:</h2>
+            <p id="targetScore">{{ target }}</p>
+        </div>
+
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            {% for player_data in playersList.values() %}
+            <section>
+                <h2 class="leaderboardName">{{ player_data[0] }}</h2>
+                <p class="leaderboardScore">{{ player_data[1] }}</p>
+            </section>
+            {% endfor %}
+        </div>
+
+        <div class="endgame">
+            <button id="nextRound" type="button">Next Round</button>
+            <button id="endGame" type="button">End Game</button>
+        </div>
+
+        <form name="sendToBackendForm" action="/gameEnded" method="post">
+            <input type="text" id="sendToBackendInput" name="sendToBackendInput">
+        </form>
+    </div>
+
+    <script src="../static/manageGame.js"></script>
+</main>
+
+
+{% endblock %}

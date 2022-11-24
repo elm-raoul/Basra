@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<main>
+    <div class="ended_container">
+
+        <div class="winner_container">
+            <div class="name_container">
+                <h1>Winner:</h1>
+                <h4>{{ winner }}</h4>
+            </div>
+
+            <div class="score_container">
+                <h1>Score:</h1>
+                <h4>{{ score }}</h4>
+            </div>
+        </div>
+
+        <div class="target_score">
+            <div class="left">
+                <h2>Target Score:</h2>
+                <p id="targetScore">{{ target }}</p>
+            </div>
+
+            <div class="right">
+                <h2>Final Round:</h2>
+                <p id="targetScore">{{ round }}</p>
+            </div>
+
+        </div>
+
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            {% for key,value in playersList.items() %}
+            <section>
+                <h2 class="leaderboardName">{{ key }}</h2>
+                <p class="leaderboardScore">{{ value }}</p>
+            </section>
+            {% endfor %}
+        </div>
+
+        <div class="endgame">
+            <a href="/"><button id="endGame" type="button">End Game</button></a>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

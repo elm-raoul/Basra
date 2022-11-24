@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+<main>
+    <div class="players_count">
+        <form method="post" action="/getPlayerNames">
+            <h3>How many players will be playing?</h3>
+            <select name="players_count">
+                <option selected value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </br>
+            <h3>Choose a target score:</h3>
+            <select name="target_score">
+                <option selected value=62>62</option>
+                <option value=101>101</option>
+            </select>
+        <hr style="width: 100%;">    
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</main>
+
+
+
+
+{% endblock %}
